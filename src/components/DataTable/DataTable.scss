@@ -1,0 +1,62 @@
+@import "../../utils/constants.scss";
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+    th,
+    td {
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    thead {
+        background-color: $table-header-bg-color;
+
+        th {
+            color: $table-header-color;
+            font-weight: bold;
+        }
+    }
+
+    tbody {
+        tr {
+            background-color: $table-bg-color;
+            transition: background-color 0.3s;
+
+            &:hover {
+                background-color: $table-row-hover-bg-color;
+            }
+
+            &:has(.loader) {
+                background-color: $expanded-bg-color;
+            }
+        }
+
+        .expanded-deal {
+            background-color: $expanded-bg-color;
+            border: 1px solid $expanded-border-color;
+            padding: 16px;
+            margin-top: 8px;
+            border-radius: 4px;
+
+            p {
+                margin: 4px 0;
+                font-size: 14px;
+            }
+        }
+    }
+}
+
+.loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+
+    svg {
+        stroke: $spinner-color;
+    }
+}
